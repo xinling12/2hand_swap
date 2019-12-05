@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<title>Login&Sign up</title>
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/green.css">
+ 
+<script>
+function showHint(str) {
+    if (str.length == 0) { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "hint.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>
+</head>
+
+<body class="boxed">
+<div id="wrapper">
+
+
+<!-- Top Bar
+================================================== -->
+<div id="top-bar">
+	<div class="container">
+		<!-- Top Bar Menu -->
+		<div class="ten columns">
+			<ul class="top-bar-menu">
+				<li>G'day!</li>
+				<li><i class="fa fa-child"></i><a href="login_signup.html">Log in</a></li>
+				<li><i class="fa fa-pencil"></i><a href="login_signup.html">Sign up</a></li>
+			</ul>
+		</div>
+
+		<!-- Social Icons -->
+		<div class="six columns">
+			<ul class="social-icons">
+				<li><a class="facebook" href="http://www.facebook.com"><i class="icon-facebook"></i></a></li>
+				<li><a class="twitter" href="http://www.twitter.com"><i class="icon-twitter"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="clearfix"></div>
+
+
+<!-- Header
+================================================== -->
+<div class="container">
+
+
+	<!-- Logo -->
+	<div class="four columns">
+		<div id="logo">
+			<h1><a href="index.html"><img src="images/swap.jpg" alt="2handSwap" /></a></h1>
+		</div>
+	</div>
+
+	<div class="six columns">
+		<div id="logo">
+			<h1><a href="index.html"><img src="images/website_name.jpg" alt="2handSwap" /></a></h1>
+		</div>
+	</div>
+
+	<!-- Additional Menu -->
+	<div class="six columns">
+		<div id="additional-menu">
+			<ul>
+				<li><a href="wishlist.php">WishList <span>(0)</span></a></li>
+				<li><a href="User_Account.php">My Account</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<!-- Search -->
+	<div class="six columns">
+		<nav class="top-search">
+			<form action="Search.php" method="get">
+				<button ><i class="fa fa-search"></i></button>
+				<input class="search-field" name="search_content" type="text" onkeyup="showHint(this.value)" placeholder="Search">
+			</form>
+			<p><span id="txtHint"></span></p>
+		</nav>
+	</div>
+</div>
+
+
+<!-- Navigation
+================================================== -->
+<div class="container">
+	<div class="sixteen columns">
+		
+		<a href="#menu" class="menu-trigger"><i class="fa fa-bars"></i> Menu</a>
+
+		<nav id="navigation">
+			<ul class="menu" id="responsive">
+
+				<li><a href="index.html" class="current homepage" id="current">Home</a></li>
+
+				<li class="dropdown">
+					<a href="aboutus.php">About us</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<!-- Titlebar
+================================================== -->
+<section class="titlebar">
+<div class="container">
+	<div class="sixteen columns">
+		<h2>Log in & Sign up</h2>
+	</div>
+</div>
+</section>
+
+
+<!-- Content
+================================================== -->
+
+<!-- Container -->
+<div class="container">
+
+	<div class="six columns centered">
+
+		<ul class="tabs-nav my-account">
+			<li class=""><a href="#tab1">Login</a></li>
+			<li><a href="#tab2">Sign up</a></li>
+		</ul>
+
+		<div class="tabs-container">
+			<!-- Login -->
+			<div class="tab-content" id="tab1" style="display: none;">
+
+				<h3 class="headline">Login</h3><span class="line" style="margin-bottom:20px;"></span><div class="clearfix"></div>
+
+				<form method="post" class="login" action="login_process.php">
+
+					
+					<p class="form-row form-row-wide">
+						<label for="username">Username or Email Address: <span class="required">*</span></label>
+						<input type="text" class="input-text" name="username" id="username" value="" />
+					</p>
+
+					<p class="form-row form-row-wide">
+						<label for="password">Password: <span class="required">*</span></label>
+						<input class="input-text" type="password" name="password" id="password" />
+					</p>
+
+					<p class="form-row">
+						<input type="submit" class="button" name="login" value="Login" />
+					</p>
+
+					
+				</form>
+			</div>
+
+				<!-- Register -->
+				<div class="tab-content" id="tab2" style="display: none;">
+
+					<h3 class="headline">Sign up</h3><span class="line" style="margin-bottom:20px;"></span><div class="clearfix"></div>
+
+					<form method="post" action="signup_process.php" class="register" method="post">
+						
+						<p class="form-row form-row-wide">
+							<label for="reg_email">Email Address: <span class="required">*</span></label>
+							<input type="email" class="input-text" name="email" id="reg_email" value="" />
+						</p>
+
+						
+						<p class="form-row form-row-wide">
+							<label for="reg_password">Password: <span class="required">*</span></label>
+							<input type="password" class="input-text" name="password" id="reg_password" />
+						</p>
+
+						<p class="form-row form-row-wide">
+							<label for="reg_password2">Repeat Password: <span class="required">*</span></label>
+							<input type="password" class="input-text" name="confirm_password" id="reg_password2" />
+						</p>
+
+									
+						<p class="form-row">
+							<input type="submit" class="button" name="register" value="Sign up" />
+						</p>
+						
+					</form>
+				</div>
+		</div>
+	</div>
+</div>
+
+<div class="margin-top-50"></div>
+
+
+<!-- Footer
+================================================== -->
+<div id="footer">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="four columns">
+			<div id="footer_logo">
+				<a href="index.html"><img src="images/swap_small.jpg" alt="2hand swap" class="margin-top-15"></a>
+				<p class="margin-top-10">	</p>
+			</div>
+		</div>
+
+		<div class="six columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">Customer Service</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+
+			<ul class="footer-links">
+				<li><a href="private_policy.php">Privacy Policy</a></li>
+				<li><a href="terms&condition.php">Terms & Conditions</a></li>
+			</ul>
+
+		</div>
+
+		<div class="six columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">My Account</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+
+			<ul class="footer-links">
+				<li><a href="User_Account.php">My Account</a></li>
+				<li><a href="wishlist.php">Wish List</a></li>
+			</ul>
+
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer / End -->
+
+<!-- Footer Bottom / Start -->
+<div id="footer-bottom">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="eight columns">© Copyright 2018 by <a href="index.html">2hand Swap</a>. All Rights Reserved.</div>
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer Bottom / End -->
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+</div>
+
+
+<!-- Java Script
+================================================== -->
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="scripts/jquery.jpanelmenu.js"></script>
+<script src="scripts/jquery.themepunch.plugins.min.js"></script>
+<script src="scripts/jquery.themepunch.revolution.min.js"></script>
+<script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
+<script src="scripts/jquery.magnific-popup.min.js"></script>
+<script src="scripts/hoverIntent.js"></script>
+<script src="scripts/superfish.js"></script>
+<script src="scripts/jquery.pureparallax.js"></script>
+<script src="scripts/jquery.pricefilter.js"></script>
+<script src="scripts/jquery.selectric.min.js"></script>
+<script src="scripts/jquery.royalslider.min.js"></script>
+<script src="scripts/SelectBox.js"></script>
+<script src="scripts/modernizr.custom.js"></script>
+<script src="scripts/waypoints.min.js"></script>
+<script src="scripts/jquery.flexslider-min.js"></script>
+<script src="scripts/jquery.counterup.min.js"></script>
+<script src="scripts/jquery.tooltips.min.js"></script>
+<script src="scripts/jquery.isotope.min.js"></script>
+<script src="scripts/puregrid.js"></script>
+<script src="scripts/stacktable.js"></script>
+<script src="scripts/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+##Reference Details
+Libraries:
+1.Name:PHP - smart&easy image resize function
+  Author:Maxim Chernyak
+  URL:www.nimrodstech.com
+2.Name:TCPDF - PHP PDF Library
+  Author:Nicola Asuni <info@tecnick.com>
+  URL:https://github.com/tecnickcom/TCPDF
+
+API:
+1.Google Map
+  *show the location of a certain address

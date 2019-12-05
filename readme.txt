@@ -3,7 +3,6 @@
 ##Introduction
 2Hand Swap--a website which provides a platform for sellers who would like to sell their second-hand electronic devices (smart phones and laptops etc.) and buyers who can search the products they want and consult with the sellers through this website.
 
-* website URL : https://infs3202-60bac0fd.uqcloud.net
 
 ## How to use :
 
